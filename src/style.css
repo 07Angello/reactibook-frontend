@@ -87,6 +87,7 @@ html, body {
     color: white;
     font-size: 16px;
     border-radius: 50%;
+    z-index: 9;
 }
 
 .login-add-account {
@@ -94,4 +95,59 @@ html, body {
     font-size: 45px;
     color: #1877f2;
     background-color: #f5f6f7;
+    transition: font-size 0.5s;
+}
+
+.login-add-account:hover {
+    font-size: 60px;
+}
+
+.img-card-container {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.img-zoom {
+    transform-origin: 50% 0;
+    transition: transform 0.5s, visibility .25s ease-in;;
+}
+
+.img-zoom:hover {
+    transform: scale(2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+.move {
+    -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+}
+
+@-webkit-keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70px);
+                transform: translateX(70px);
+    }
+    
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(0);
+                transform: translate(0);
+    }
+}
+  
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70px);
+                transform: translateX(70px);
+    }
+    
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(0);
+                transform: translate(0);
+    }
 }
