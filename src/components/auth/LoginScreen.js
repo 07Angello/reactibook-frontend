@@ -1,21 +1,23 @@
 import React from 'react';
 import './auth-styles.css';
+import ReactTooltip from 'react-tooltip';
 
 export const LoginScreen = () => {
+    
     const goToMyLinkedIn = () => {
-        console.log('LinkedIn');
         window.open('https://www.linkedin.com/in/gabriel-angello-antonelly-g%C3%A1mez-b1b623195/','AngelloAntonelly');
     }
 
     return (
         <div className="w-100 h-100 row d-flex justify-content-center align-items-center" style={{ position: 'absolute' }}>
+            <ReactTooltip type="info" place="bottom" effect="solid" />
             <div className="row no-margin login-custom">
                 <div className="col-md-6 d-flex flex-column justify-content-center align-items-center">
                     <h1 className="reactibook-logo">Reactibook</h1>
                     <h2 style={{ fontWeight: 'lighter' }}>Recent logins</h2>
                     <h6  style={{ fontWeight: 'lighter' }}>Click your picture or add an account.</h6>
                     <div className="d-flex flex-row justify-content-around align-items-center">
-                        <div className="card login-card" onClick={ goToMyLinkedIn }>
+                        <div className="card login-card" onClick={ goToMyLinkedIn } data-tip="Click me!">
                             <span className="badge bg-linkedIn"><i className="bi bi-linkedin"></i></span>
                             <div className="img-card-container">
                                 <img className="card-img-top img-zoom" src="https://scontent.fsap4-1.fna.fbcdn.net/v/t1.0-1/p160x160/87971700_10216995627031457_8324324086314434560_n.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=dbb9e7&amp;_nc_ohc=a01Zcr_IXr8AX98PnTy&amp;_nc_ht=scontent.fsap4-1.fna&amp;tp=6&amp;oh=b5868c87ce7bc3734f3f6f0651d24a7c&amp;oe=603F3F92" alt="Card image cap" />
@@ -41,7 +43,6 @@ export const LoginScreen = () => {
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password"></input>
-                            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg btn-block">Log In</button>
                         <p className="text-center mt-3 mb-1 text-primary">Forgotten Password?</p>

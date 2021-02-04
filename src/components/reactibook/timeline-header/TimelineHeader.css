@@ -1,0 +1,46 @@
+.timeline-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 1px 1px rgba(0, 0, 0, .1);
+    position: relative;
+    background: linear-gradient(180deg, rgba(109, 130, 161, 1) 0%, rgba(255, 255, 255, 1) 50%);
+}
+
+.cover-container {
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    max-height: 300px;
+    width: 100%;
+}
+
+.cover-photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
+}
+
+.container {
+    max-width: 950px;
+}
+
+.profile-photo {
+    background-color: #ffffff;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    top: 160px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+}
+
+.profile-photo img {
+    height: 142px;
+    width: 142px;
+    border-radius: 100%;
+    object-fit: cover;
+}
