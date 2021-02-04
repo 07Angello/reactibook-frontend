@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './auth-styles.css';
 import ReactTooltip from 'react-tooltip';
+import { RegisterModal } from './RegisterModal';
 
 export const LoginScreen = () => {
 
@@ -120,6 +121,8 @@ export const LoginScreen = () => {
                     <p><b>Create a Page</b> for a celebrity, band or business.</p>
                 </div>
             </div>
+
+            <RegisterModal />
         </div>
     )
 }
