@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import './auth-styles.css';
 import ReactTooltip from 'react-tooltip';
 import { RegisterModal } from './RegisterModal';
+import { useDispatch } from 'react-redux';
+import { loginOpenModal } from '../../redux/actions/login';
 
 export const LoginScreen = () => {
+
+    const dispatch = useDispatch();
 
     const [loginFormValues, setLoginFormValues] = useState({
         email: '',
@@ -44,6 +48,10 @@ export const LoginScreen = () => {
 
     const goToMyLinkedIn = () => {
         window.open('https://www.linkedin.com/in/gabriel-angello-antonelly-g%C3%A1mez-b1b623195/','AngelloAntonelly');
+    }
+
+    const openRegisterModal = () => {
+        dispatch( loginOpenModal() );
     }
 
     return (
@@ -91,7 +99,7 @@ export const LoginScreen = () => {
 
                             ></input>
                             <div className="invalid-feedback">
-                                The email is required, could not be empty.
+                                The email is required, can not be empty.
                             </div>
                         </div>
                         <div className="form-group">
@@ -106,7 +114,7 @@ export const LoginScreen = () => {
 
                             ></input>
                             <div className="invalid-feedback">
-                                The password is required, could not be empty.
+                                The password is required, can not be empty.
                             </div>
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg btn-block">Log In</button>
@@ -115,7 +123,7 @@ export const LoginScreen = () => {
                         <hr className="separator"></hr>
 
                         <div className="w-100 d-flex justify-content-center align-items-center">
-                            <button type="button" className="btn btn-success btn-lg mt-2 mb-1">Create Account</button>
+                            <button onClick={ openRegisterModal } type="button" className="btn btn-success btn-lg mt-2 mb-1">Create Account</button>
                         </div>
                     </form>
                     <p><b>Create a Page</b> for a celebrity, band or business.</p>

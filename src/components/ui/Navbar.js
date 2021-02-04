@@ -20,7 +20,7 @@ export const Navbar = () => {
                 className="btn btn-outline-danger d-flex justify-content-center align-items-center"
                 onClick={ logingOut }
             >
-                <i class="bi bi-box-arrow-right mb-1 mr-2"></i>
+                <i className="bi bi-box-arrow-right mb-1 mr-2"></i>
                 <span>Logout</span>
             </button>
         </div>
