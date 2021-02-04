@@ -1,4 +1,5 @@
 import React from 'react';
+import { NewPost } from './new-post/NewPost';
 import { PersonalContent } from './personal-content/PersonalContent';
 import './Posts.css';
 
@@ -12,7 +13,7 @@ export const Posts = () => {
                     </div>
         
                     <div className="col-md-7">
-
+                        <NewPost/>
                     </div>
                 </div>
             </div>

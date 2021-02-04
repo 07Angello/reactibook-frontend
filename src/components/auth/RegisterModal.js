@@ -88,13 +88,14 @@ export const RegisterModal = () => {
                 isOpen={ modalIsOpen }
                 onRequestClose={ closeRegisterModal }
                 style={ customStyles }
-                closeTimeoutMS={ 200 }
+                closeTimeoutMS={ 100 }
                 className="modal"
                 overlayClassName="modal-background"
             >
                 <div className="pl-3 pr-3">
-                    <h1>Sign Up</h1>
+                    <h2>Sign Up</h2>
                     <p>It's quick and easy.</p>
+                    <i onClick={ closeRegisterModal } className="bi bi-x register-form-x"></i>
                 </div>
                 
                 <hr/>

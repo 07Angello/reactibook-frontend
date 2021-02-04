@@ -1,0 +1,32 @@
+.photo {
+    background-color: white;
+    height: 47px;
+    width: 47px;
+    border-radius: 50%;
+}
+
+.rounded {
+    border-top-right-radius: 20px !important;
+    border-top-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    background-color: #DADDE1;
+}
+
+.woym-icons {
+    font-size: 22px;
+}
+
+.woym {
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+.rounded:hover {
+    background-color: #BEC3C9 !important;
+}
