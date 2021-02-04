@@ -14,9 +14,9 @@ export const AppRouter = () => {
         <Router>
             <Switch>
                 <Route exact path="/login" component={ LoginScreen } />
-                <Route exact path="/wall" component={ WallScreen } />
+                <Route exact path="/" component={ WallScreen } />
 
-                <Redirect to="/wall" />
+                <Redirect to="/" />
             </Switch>
         </Router>
     )
