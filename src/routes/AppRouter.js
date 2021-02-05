@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
-    Redirect,
-    Route
+    Redirect
   } from "react-router-dom";
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { WallScreen } from '../components/reactibook/WallScreen';
@@ -19,10 +18,8 @@ export const AppRouter = () => {
     const { checking, uid } = useSelector(state => state.auth);
 
     useEffect(() => {
-        
         dispatch( startChecking() );
-
-    }, []);
+    }, [ dispatch ]);
 
     if ( checking ) {
         return (<h5>Please wait a few seconds...</h5>);

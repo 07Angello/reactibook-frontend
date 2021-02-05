@@ -13,8 +13,6 @@ export const startLogin = (email, password) => {
             localStorage.setItem('token', Token);
             localStorage.setItem('token-init-date', new Date().getTime() );
 
-            console.log(Data);
-
             dispatch( login({ 
                 uid: Data._id,
                 name: Data.name,
@@ -60,8 +58,6 @@ export const startChecking = () => {
         } else {
             localStorage.setItem('token', Token);
             localStorage.setItem('token-init-date', new Date().getTime() );
-
-            console.log(Data);
 
             dispatch( login({ 
                 uid: Data._id,

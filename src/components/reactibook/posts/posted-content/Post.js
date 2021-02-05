@@ -6,7 +6,7 @@ import './PostedContent.cs';
 
 export const Post = ({ post }) => {
 
-    const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
+    const { name, profilePhoto } = useSelector(state => state.auth);
 
     const [statePost, setStatePost] = useState({
         _id: post._id,
@@ -94,8 +94,8 @@ export const Post = ({ post }) => {
                                     <i className="bi bi-gear-fill"></i>
                                 </button>
                                 <div className="dropdown-menu">
-                                    <a onClick={ editPost } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</a>
-                                    <a onClick={ deletePost } className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</a>
+                                    <b onClick={ editPost } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</b>
+                                    <b onClick={ deletePost } className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</b>
                                 </div>
                             </div>
                         )

@@ -23,7 +23,7 @@ export const NewPostModal = () => {
         filter: 'public'
     }
 
-    const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
+    const { name, profilePhoto } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
@@ -77,7 +77,7 @@ export const NewPostModal = () => {
                         </div>
                         <div className="col-11 d-flex flex-column justify-content-center align-items-left">
                             <h6>{ name }</h6>
-                            <select name="filter"
+                            <select
                                 value={ filter }
                                 className="form-control col-4"
                                 name="filter"

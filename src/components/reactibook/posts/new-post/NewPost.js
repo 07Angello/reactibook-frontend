@@ -9,7 +9,7 @@ export const NewPost = () => {
 
     const dispatch = useDispatch();
 
-    const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
+    const { profilePhoto } = useSelector(state => state.auth);
 
     const openNewPostModal = () => {
         dispatch( postOpenModal() );
