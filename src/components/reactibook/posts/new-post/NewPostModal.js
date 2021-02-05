@@ -5,6 +5,10 @@ import { postCloseModal } from '../../../../redux/actions/postModal';
 import defaultProfilePhoto from '../../../../assets/avatar.svg'
 
 import './NewPost.css';
+import { startAddNewPost } from '../../../../redux/actions/post';
+
+import filterType from '../../../../helpers/filterTypes';
+
 const customStyles = {
     content: {
         top : '50%',
@@ -19,16 +23,16 @@ const customStyles = {
 export const NewPostModal = () => {
 
     const initialState= {
-        postContent: '',
-        filter: 'public'
+        content: '',
+        filter: filterType.PUBLIC
     }
 
-    const { name, profilePhoto } = useSelector(state => state.auth);
+    const { uid, name, profilePhoto } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
     const [postFormValue, setPostFormValue] = useState(initialState)
-    const { postContent } = postFormValue;
+    const { content } = postFormValue;
 
     const { postModalIsOpen, filter } = useSelector(state => state.postModal);
 
@@ -44,10 +48,12 @@ export const NewPostModal = () => {
         })
     }
 
-    const savePostForm = ( event ) => {
+    const handleSavPostForm = ( event ) => {
         event.preventDefault();
-        
-        console.log(postFormValue);
+
+        dispatch( startAddNewPost( postFormValue, uid ) );
+        closeNewPostModal();
+        setPostFormValue( initialState );
     }
 
     return (
@@ -69,7 +75,7 @@ export const NewPostModal = () => {
 
                 <form
                     className="container"
-                    onSubmit={ savePostForm }
+                    onSubmit={ handleSavPostForm }
                 >
                     <div className="col-12 d-flex flex-row justify-content-center align-items-center mb-3">
                         <div className="col-1 d-flex justify-content-center align-items-center">
@@ -83,9 +89,9 @@ export const NewPostModal = () => {
                                 name="filter"
                                 onChange={ handleInputChange }
                             >
-                                <option value="public">Public</option>
-                                <option value="friends">Friends</option>
-                                <option value="onlyMe">Only Me</option>
+                                <option value={ filterType.PUBLIC }>Public</option>
+                                <option value={ filterType.FRIENDS }>Friends</option>
+                                <option value={ filterType.ONLY_ME }>Only Me</option>
                             </select>
                         </div>
                     </div>
@@ -95,16 +101,16 @@ export const NewPostModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder="What's on your mind?"
-                            name="postContent"
-                            value={ postContent }
+                            name="content"
+                            value={ content }
                             onChange={ handleInputChange }
-                            id="postContent"
+                            id="content"
                             style={{ height: '225px', resize: 'none' }}
                         ></textarea>
                     </div>
 
                     <div className="w-100 d-flex justify-content-center align-items-center">
-                        <button onClick={ savePostForm } type="submit" className="btn btn-primary btn-sm mt-2 mb-1 pl-5 pr-5 btn-block">Post</button>
+                        <button type="submit" className="btn btn-primary btn-sm mt-2 mb-1 pl-5 pr-5 btn-block">Post</button>
                     </div>
 
                 </form>

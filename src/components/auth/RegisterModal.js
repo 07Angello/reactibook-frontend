@@ -49,8 +49,6 @@ export const RegisterModal = () => {
 
     const closeRegisterModal = () => {
         dispatch( loginCloseModal() );
-        resetRegisterFormState();
-        setRegisterFormValues(initialFormValues);
     }
 
     const handleInputChange = ({ target }) => {
@@ -77,8 +75,12 @@ export const RegisterModal = () => {
             return;
         }
 
+        if ( password.length < 6 ) {
+            setConfirmPasswordIsValid(false);
+            setPasswordIsValid(false);
+        }
+
         dispatch( startRegister(email, password, name) );
-        closeRegisterModal();
     }
 
     const signUp = () => {

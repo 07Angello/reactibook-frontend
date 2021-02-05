@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
+import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
 import './PostedContent.cs';
 
 export const Post = ({ post }) => {
+
+    const dispatch = useDispatch();
 
     const { name, profilePhoto } = useSelector(state => state.auth);
 
@@ -17,7 +20,7 @@ export const Post = ({ post }) => {
 
     const [isEditing, setIsEditing] = useState(false);
 
-    const editPost = () => {
+    const handleEditPost = ( postId ) => {
         setStatePost({
             ...statePost,
             content: post.content,
@@ -25,10 +28,9 @@ export const Post = ({ post }) => {
         });
 
         setIsEditing(true);
-        console.log(statePost);
     }
 
-    const deletePost = () => {
+    const handleDeletePost = ( postId ) => {
         Swal.fire({
             title: 'Delete Post?',
             text: 'Are you sure you want to delete this post?',
@@ -38,19 +40,18 @@ export const Post = ({ post }) => {
             cancelButtonText: 'No, keep it'
         }).then((result) => {
             if (result.value) {
-                console.log('deleting post...')
+                dispatch( startingDeletePost( postId ) );
             }
         });
     }
 
-    const saveEditedPost = (e) => {
+    const handleSaveEditedPost = (e) => {
         e.preventDefault();
 
         if(statePost.content.length === 0 || statePost.content === '') {
             return;
         }
 
-        // TODO: save post edited.
         setStatePost({
             ...statePost,
             content: post.content,
@@ -59,7 +60,7 @@ export const Post = ({ post }) => {
         });
 
         setIsEditing(false);
-        console.log(statePost);
+        dispatch( startEditingPost( statePost ) );
     }
 
     const cancelEditPost = () => {
@@ -94,8 +95,8 @@ export const Post = ({ post }) => {
                                     <i className="bi bi-gear-fill"></i>
                                 </button>
                                 <div className="dropdown-menu">
-                                    <b onClick={ editPost } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</b>
-                                    <b onClick={ deletePost } className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</b>
+                                    <b onClick={ () => handleEditPost(post._id) } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</b>
+                                    <b onClick={ () => handleDeletePost(post._id) }  className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</b>
                                 </div>
                             </div>
                         )
@@ -106,7 +107,7 @@ export const Post = ({ post }) => {
                         isEditing ? (
                             <form
                                 className="container"
-                                onSubmit={ saveEditedPost }
+                                onSubmit={ handleSaveEditedPost }
                             >
                                 <div className="form-group">
                                     <textarea
@@ -124,7 +125,7 @@ export const Post = ({ post }) => {
                                         <i className="bi bi-x mr-1"></i>
                                         Cancel
                                     </button>
-                                    <button onClick={ saveEditedPost } type="submit" className="btn btn-primary btn-sm mt-2 mb-1 pl-5 pr-5">
+                                    <button type="submit" className="btn btn-primary btn-sm mt-2 mb-1 pl-5 pr-5">
                                         <i className="bi bi-check mr-1"></i>Save
                                     </button>
                                 </div>

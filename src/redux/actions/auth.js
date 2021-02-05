@@ -1,11 +1,13 @@
 import { fetchWithoutToken, fetchWithToken } from "../../helpers/fetch";
 import { toast } from 'react-toastify';
 import { types } from "../types/types";
+import { loginCloseModal } from "./loginModal";
+import { postsLogout } from "./post";
 
 export const startLogin = (email, password) => {
     return async( dispatch ) => {
-        const resp = await fetchWithoutToken( 'auth', { email, password }, 'POST');
-        const { Data, Message, Token, OK } = await resp.json();
+        const response = await fetchWithoutToken( 'auth', { email, password }, 'POST');
+        const { Data, Message, Token, OK } = await response.json();
 
         if (!OK && Message && Message.length > 0 ) {
             toast.warn( Message );
@@ -25,14 +27,16 @@ export const startLogin = (email, password) => {
 
 export const startRegister = (email, password, name) => {
     return async( dispatch ) => {
-        const resp = await fetchWithoutToken( 'auth/register', { email, password, name }, 'POST');
-        const { Data, Message, Token, OK } = await resp.json();
+        const response = await fetchWithoutToken( 'auth/register', { email, password, name }, 'POST');
+        const { Data, Message, Token, OK } = await response.json();
 
         if (!OK && Message && Message.length > 0 ) {
             toast.warn( Message );
         } else {
             localStorage.setItem('token', Token);
             localStorage.setItem('token-init-date', new Date().getTime() );
+
+            dispatch( loginCloseModal() );
 
             dispatch( login({ 
                 uid: Data._id,
@@ -46,8 +50,8 @@ export const startRegister = (email, password, name) => {
 
 export const startChecking = () => {
     return async( dispatch ) => {
-        const resp = await fetchWithToken( 'auth/renew-token', {} );
-        const { Data, Message, Token, OK } = await resp.json();
+        const response = await fetchWithToken( 'auth/renew-token', {} );
+        const { Data, Message, Token, OK } = await response.json();
 
         if (!OK && Message && Message.length > 0 ) {
             dispatch( checkingFinish() );
@@ -77,6 +81,7 @@ const login = ( user ) => ({
 export const startLogout = () => {
     return ( dispatch ) => {
         localStorage.clear();
+        dispatch( postsLogout() );
         dispatch( logout() );
     }
 }

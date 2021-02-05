@@ -13,7 +13,10 @@ export const types = {
     postOpenModal: '[postModal] Open Modal',
     postCloseModal: '[postModal] Close Modal',
 
-    postGetAll: '[post] Get All',
-    postEdit: '[post] Edit Post',
-    postDelete: '[post] Delete Post'
+    postStartAddNew: '[post] Start Add New',
+    postAddNew: '[post] Add New',
+    postGottenFiltered: '[post] Gotten Filtered',
+    postDelete: '[post] Delete Post',
+    postUpdate: '[post] Update Post',
+    postsLogout: '[post] Logout Post'
 }
