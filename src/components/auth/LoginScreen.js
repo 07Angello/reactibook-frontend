@@ -3,7 +3,7 @@ import './auth-styles.css';
 import ReactTooltip from 'react-tooltip';
 import { RegisterModal } from './RegisterModal';
 import { useDispatch } from 'react-redux';
-import { loginOpenModal } from '../../redux/actions/login';
+import { loginOpenModal } from '../../redux/actions/loginModal';
 
 export const LoginScreen = () => {
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginCloseModal } from '../../redux/actions/login';
+import { loginCloseModal } from '../../redux/actions/loginModal';
 import { toast } from 'react-toastify';
 
 import './auth-styles.css';
@@ -27,7 +27,7 @@ export const RegisterModal = () => {
         }
     }
 
-    const { modalIsOpen } = useSelector( state => state.login );
+    const { modalIsOpen } = useSelector( state => state.loginModal );
 
     const dispatch = useDispatch();
 

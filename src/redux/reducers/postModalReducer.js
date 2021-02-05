@@ -4,7 +4,7 @@ const initialState = {
     postModalIsOpen: false
 }
 
-export const postReducer = (state = initialState, action) => {
+export const postModalReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.postOpenModal:
             return {

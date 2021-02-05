@@ -4,7 +4,7 @@ const initialState = {
     modalIsOpen: false,
 }
 
-export const loginReducer = ( state = initialState, action ) => {
+export const loginModalReducer = ( state = initialState, action ) => {
 
     switch (action.type) {
         case types.loginOpenModal:

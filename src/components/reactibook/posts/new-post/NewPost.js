@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import './NewPost.css';
 import { NewPostModal } from './NewPostModal';
-import { postOpenModal } from '../../../../redux/actions/post'
+import { postOpenModal } from '../../../../redux/actions/postModal'
 
 export const NewPost = () => {
 

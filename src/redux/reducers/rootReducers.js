@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { loginReducer } from "./loginReducer";
-import { postReducer } from "./postReducer";
+import { loginModalReducer } from "./loginModalReducer";
+import { postModalReducer } from "./postModalReducer";
 
 export const rootReducer = combineReducers({
-    login: loginReducer,
-    post: postReducer,
-    // TODO: Wall Reducer
+    loginModal: loginModalReducer,
+    postModal: postModalReducer,
+    // TODO: Wall Reducers
 })

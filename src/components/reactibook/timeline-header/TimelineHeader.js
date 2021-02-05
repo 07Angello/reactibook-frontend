@@ -14,7 +14,7 @@ export const TimelineHeader = () => {
                     <div className="mx-auto text-center cover-container">
                         <img className="img-fluid cover-photo" alt="" src={coverPhoto} />
                         <div className="profile-photo">
-                            <img alt="" src={avatar} />
+                            <img alt="" src="https://scontent.fsap4-1.fna.fbcdn.net/v/t1.0-1/p160x160/87971700_10216995627031457_8324324086314434560_n.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=dbb9e7&amp;_nc_ohc=a01Zcr_IXr8AX98PnTy&amp;_nc_ht=scontent.fsap4-1.fna&amp;tp=6&amp;oh=b5868c87ce7bc3734f3f6f0651d24a7c&amp;oe=603F3F92" />
                         </div>
                     </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { postCloseModal } from '../../../../redux/actions/post';
+import { postCloseModal } from '../../../../redux/actions/postModal';
 
 import './NewPost.css';
 const customStyles = {
@@ -27,7 +27,7 @@ export const NewPostModal = () => {
     const [postFormValue, setPostFormValue] = useState(initialState)
     const { postContent } = postFormValue;
 
-    const { postModalIsOpen, filter } = useSelector(state => state.post);
+    const { postModalIsOpen, filter } = useSelector(state => state.postModal);
 
 
     const closeNewPostModal = () => {
@@ -96,7 +96,7 @@ export const NewPostModal = () => {
                             value={ postContent }
                             onChange={ handleInputChange }
                             id="postContent"
-                            style={{ height: '225px' }}
+                            style={{ height: '225px', resize: 'none' }}
                         ></textarea>
                     </div>
 

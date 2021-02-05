@@ -1,6 +1,7 @@
 import React from 'react';
 import { NewPost } from './new-post/NewPost';
 import { PersonalContent } from './personal-content/PersonalContent';
+import { PostedContent } from './posted-content/PostedContent';
 import './Posts.css';
 
 export const Posts = () => {
@@ -14,6 +15,7 @@ export const Posts = () => {
         
                     <div className="col-md-7">
                         <NewPost/>
+                        <PostedContent />
                     </div>
                 </div>
             </div>
