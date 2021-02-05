@@ -19,8 +19,6 @@ export const startLogin = (email, password) => {
                 profilePhoto: Data.profilePhoto,
                 coverPhoto: Data.coverPhoto
             }) );
-
-            toast.success( `Welcome ${ Data.name }!` );
         }
     }
 }
@@ -42,8 +40,6 @@ export const startRegister = (email, password, name) => {
                 profilePhoto: Data.profilePhoto,
                 coverPhoto: Data.coverPhoto
             }) );
-
-            toast.success( `Welcome ${ Data.name }!` );
         }
     }
 }
