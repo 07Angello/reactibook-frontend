@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { postCloseModal } from '../../../../redux/actions/postModal';
+import defaultProfilePhoto from '../../../../assets/avatar.svg'
 
 import './NewPost.css';
 const customStyles = {
@@ -21,6 +22,8 @@ export const NewPostModal = () => {
         postContent: '',
         filter: 'public'
     }
+
+    const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
@@ -70,10 +73,10 @@ export const NewPostModal = () => {
                 >
                     <div className="col-12 d-flex flex-row justify-content-center align-items-center mb-3">
                         <div className="col-1 d-flex justify-content-center align-items-center">
-                            <img className="photo" alt="" src="https://scontent.fsap4-1.fna.fbcdn.net/v/t1.0-1/p160x160/87971700_10216995627031457_8324324086314434560_n.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=dbb9e7&amp;_nc_ohc=a01Zcr_IXr8AX98PnTy&amp;_nc_ht=scontent.fsap4-1.fna&amp;tp=6&amp;oh=b5868c87ce7bc3734f3f6f0651d24a7c&amp;oe=603F3F92" />
+                            <img className="photo" alt="" src={ profilePhoto ? profilePhoto : defaultProfilePhoto } />
                         </div>
                         <div className="col-11 d-flex flex-column justify-content-center align-items-left">
-                            <h6>Gabriel Angello Antonelly Gamez</h6>
+                            <h6>{ name }</h6>
                             <select name="filter"
                                 value={ filter }
                                 className="form-control col-4"

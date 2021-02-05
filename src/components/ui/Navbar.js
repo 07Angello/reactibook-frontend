@@ -2,11 +2,15 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import './ui-styles.css';
 import reactibookLogo from '../../assets/reactibook.png';
+import { useDispatch } from 'react-redux';
+import { startLogout } from '../../redux/actions/auth';
 
 export const Navbar = () => {
 
-    const logingOut = () => {
+    const dispatch = useDispatch();
 
+    const handleLogOut = () => {
+        dispatch( startLogout() );
     }
 
     return (
@@ -18,7 +22,7 @@ export const Navbar = () => {
 
             <button
                 className="btn btn-outline-danger d-flex justify-content-center align-items-center"
-                onClick={ logingOut }
+                onClick={ handleLogOut }
             >
                 <i className="bi bi-box-arrow-right mb-1 mr-2"></i>
                 <span>Logout</span>

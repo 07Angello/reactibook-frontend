@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import avatar from '../../../../assets/avatar.svg';
+import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import './PostedContent.cs';
 
 export const Post = ({ post }) => {
+
+    const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
 
     const [statePost, setStatePost] = useState({
         _id: post._id,
@@ -78,10 +81,10 @@ export const Post = ({ post }) => {
                 <div className="col-12 d-flex flex-row justify-content-center align-items-center">
                     <div className="col-1 d-flex justify-content-center align-items-center">
                         <img className="photo" alt="" 
-                            src={ post.user.profilePhoto ? post.user.profilePhoto : avatar } />
+                            src={ profilePhoto ? profilePhoto : defaultProfilePhoto } />
                     </div>
                     <div className="col-11 d-flex flex-column justify-content-center align-items-left">
-                        <h6>{ post.user.name }</h6>
+                        <h6>{ name }</h6>
                         <p>{ post.createdAt }</p>
                     </div>
                     {

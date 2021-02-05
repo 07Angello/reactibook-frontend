@@ -5,6 +5,7 @@ import { loginCloseModal } from '../../redux/actions/loginModal';
 import { toast } from 'react-toastify';
 
 import './auth-styles.css';
+import { startRegister } from '../../redux/actions/auth';
 
 Modal.setAppElement('#root');
 const initialFormValues = {
@@ -48,6 +49,8 @@ export const RegisterModal = () => {
 
     const closeRegisterModal = () => {
         dispatch( loginCloseModal() );
+        resetRegisterFormState();
+        setRegisterFormValues(initialFormValues);
     }
 
     const handleInputChange = ({ target }) => {
@@ -74,8 +77,8 @@ export const RegisterModal = () => {
             return;
         }
 
-        resetRegisterFormState();
-        console.log(registerFormValues);
+        dispatch( startRegister(email, password, name) );
+        closeRegisterModal();
     }
 
     const signUp = () => {
