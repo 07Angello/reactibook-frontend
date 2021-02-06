@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Post } from './Post';
-import './PostedContent.cs';
+import './PostedContent.css';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import filterType from '../../../../helpers/filterTypes';
