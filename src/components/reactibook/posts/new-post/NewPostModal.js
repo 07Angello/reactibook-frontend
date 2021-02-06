@@ -94,17 +94,20 @@ export const NewPostModal = () => {
                             <img className="photo" alt="" src={ profilePhoto ? profilePhoto : defaultProfilePhoto } />
                         </div>
                         <div className="col-11 d-flex flex-column justify-content-center align-items-left">
-                            <h6>{ name }</h6>
-                            <select
-                                value={ filter }
-                                className="form-control col-4"
-                                name="filter"
-                                onChange={ handleInputChange }
-                            >
-                                <option value={ filterType.PUBLIC }>Public</option>
-                                <option value={ filterType.FRIENDS }>Friends</option>
-                                <option value={ filterType.ONLY_ME }>Only Me</option>
-                            </select>
+                            <h6 className="col-6">{ name }</h6>
+                            <div className="d-flex flex-row justify-content-left align-items-left">
+                                <i className="bi bi-shield-lock-fill mr-3" style={{ fontSize:'20px' }}> Privacy: </i>
+                                <select
+                                    value={ filter }
+                                    className="form-control col-4"
+                                    name="filter"
+                                    onChange={ handleInputChange }
+                                >
+                                    <option value={ filterType.PUBLIC }>Public</option>
+                                    <option value={ filterType.FRIENDS }>Friends</option>
+                                    <option value={ filterType.ONLY_ME }>Only Me</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
