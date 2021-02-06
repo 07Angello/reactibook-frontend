@@ -15,9 +15,9 @@ export const PersonalContent = () => {
                 <div className="card mt-3">
                     <div className="card-body">
                         <h5 className="card-title">Information</h5>
-                        <p><i class="bi bi-person-fill"></i> <b className="mr-1">Name:</b> { name }</p>
-                        <p><i class="bi bi-envelope"></i> <b className="mr-1">E-mail:</b> { email }</p>
-                        <p><i class="bi bi-clock-fill"></i> <b className="mr-1">Joined on:</b> { moment( createdAt ).format('MMMM YYYY') }</p>
+                        <p><i className="bi bi-person-fill"></i> <b className="mr-1">Name:</b> { name }</p>
+                        <p><i className="bi bi-envelope"></i> <b className="mr-1">E-mail:</b> { email }</p>
+                        <p><i className="bi bi-clock-fill"></i> <b className="mr-1">Joined on:</b> { moment( createdAt ).format('MMMM YYYY') }</p>
                     </div>
                 </div>
                 <div className="card mt-3">
