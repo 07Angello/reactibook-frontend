@@ -22,9 +22,21 @@ const customStyles = {
 
 export const NewPostModal = () => {
 
+    var currentDate = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      };
+
     const initialState= {
         content: '',
-        filter: filterType.PUBLIC
+        filter: filterType.PUBLIC,
+        creationDate: currentDate.toLocaleDateString('en-us', options),
     }
 
     const { uid, name, profilePhoto } = useSelector(state => state.auth);

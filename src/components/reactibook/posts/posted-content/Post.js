@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
+import { PostTypeIcon } from '../../../ui/PostTypeIcon';
 import './PostedContent.cs';
 
 export const Post = ({ post }) => {
@@ -86,7 +87,10 @@ export const Post = ({ post }) => {
                     </div>
                     <div className="col-11 d-flex flex-column justify-content-center align-items-left">
                         <h6>{ name }</h6>
-                        <p>{ post.createdAt }</p>
+                        <div className="d-flex flex-row justify-content-left align-items-center">
+                            <p className="creation-section mr-3">{ post.creationDate }</p>
+                            <PostTypeIcon postType={ post.filter } />
+                        </div>
                     </div>
                     {
                         isEditing ? ( <> </> ) : (
