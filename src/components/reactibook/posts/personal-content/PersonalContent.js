@@ -24,35 +24,35 @@ export const PersonalContent = () => {
                         <h5 className="card-title">Photos</h5>
                         <div className="row mb-3">
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderTopLeftRadius:'10px' }} />    
+                                <img alt="" src={ `https://picsum.photos/110/110?random=1` } style={{ borderTopLeftRadius:'10px' }} />    
                             </div>
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } />     
+                                <img alt="" src={ `https://picsum.photos/110/110?random=2` } />     
                             </div>
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderTopRightRadius:'10px' }}  />   
-                            </div>
-                        </div>
-                        <div className="row mb-3">
-                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } />    
-                            </div>
-                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } />     
-                            </div>
-                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } />   
+                                <img alt="" src={ `https://picsum.photos/110/110?random=3` } style={{ borderTopRightRadius:'10px' }}  />   
                             </div>
                         </div>
                         <div className="row mb-3">
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderBottomLeftRadius:'10px' }}  />    
+                                <img alt="" src={ `https://picsum.photos/110/110?random=4` } />    
                             </div>
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } />     
+                                <img alt="" src={ `https://picsum.photos/110/110?random=5` } />     
                             </div>
                             <div className="col-4 d-flex flex-column justify-content-center align-items-center">
-                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderBottomRightRadius:'10px' }}  />   
+                                <img alt="" src={ `https://picsum.photos/110/110?random=6` } />   
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110?random=7` } style={{ borderBottomLeftRadius:'10px' }}  />    
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110?random=8` } />     
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110?random=9` } style={{ borderBottomRightRadius:'10px' }}  />   
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,16 @@ export const PersonalContent = () => {
                         </div>
                     </div>
                 </div>
+                <div className="d-flex justify-content-center align-items-center mt-3">
+                    <p>
+                        <i class="bi bi-linkedin mr-1"></i>
+                        <b><a href="https://www.linkedin.com/in/gabriel-angello-antonelly-g%C3%A1mez-b1b623195/">
+                            Gabriel Angello Antonelly Gamez Sandoval
+                        </a></b>
+                    </p>
+                </div>
             </div>
+            <br />
         </div>
     )
 }
