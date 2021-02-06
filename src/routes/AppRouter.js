@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { WallScreen } from '../components/reactibook/WallScreen';
+import { Loader } from '../components/ui/Loader';
 import { startChecking } from '../redux/actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
@@ -22,7 +23,7 @@ export const AppRouter = () => {
     }, [ dispatch ]);
 
     if ( checking ) {
-        return (<h5>Please wait a few seconds...</h5>);
+        return ( <Loader /> );
     }
 
     return (
