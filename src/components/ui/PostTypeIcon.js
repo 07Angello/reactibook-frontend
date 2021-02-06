@@ -12,7 +12,7 @@ export const PostTypeIcon = ({ postType }) => {
     if ( postType === '' || postType === null ) postIconType = <i data-tip="Reactibook" className="bi bi-person-fill"></i>
 
     return (
-        <div  d-flex flex-column justify-content-center align-items-left>
+        <div>
             <ReactTooltip  place="right" type="dark" effect="solid" />
             <p>{ postIconType }</p>
         </div>

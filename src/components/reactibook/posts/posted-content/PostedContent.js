@@ -23,10 +23,9 @@ export const PostedContent = () => {
 
     const { posts } = useSelector(state => state.post);
 
-    const handleFilter = ( filterType ) => {
+    const handleFilter = ( filterType ) => {       
+        dispatch( startGettingPostsFiltered( filterType, uid ) );
         setStateSelectedFilter( filterType );
-        
-        dispatch( startGettingPostsFiltered( stateSelectedFilter, uid ) );
     }
 
     return (
