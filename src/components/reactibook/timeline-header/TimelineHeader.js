@@ -47,7 +47,7 @@ export const TimelineHeader = () => {
                     </li>
                     <li className="nav-item">
                         <a className="nav-link disabled" href="/wall">
-                            Friends 7
+                            Friends 9
                         </a>
                     </li>
                     <li className="nav-item">

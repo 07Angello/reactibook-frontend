@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './PersonalContent.css';
+import defaultProfilePhoto from '../../../../assets/avatar.svg';
 
 export const PersonalContent = () => {
 
@@ -18,11 +19,86 @@ export const PersonalContent = () => {
                 <div className="card mt-3">
                     <div className="card-body">
                         <h5 className="card-title">Photos</h5>
+                        <div className="row mb-3">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderTopLeftRadius:'10px' }} />    
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } />     
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderTopRightRadius:'10px' }}  />   
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } />    
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } />     
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } />   
+                            </div>
+                        </div>
+                        <div className="row mb-3">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderBottomLeftRadius:'10px' }}  />    
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } />     
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img alt="" src={ `https://picsum.photos/110/110` } style={{ borderBottomRightRadius:'10px' }}  />   
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="card mt-3">
                     <div className="card-body">
                         <h5 className="card-title">Friends</h5>
+                        <div className="row mb-5">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                        </div>
+                        <div className="row mb-5">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                            <div className="col-4 d-flex flex-column justify-content-center align-items-center">
+                                <img className="photo" alt="" src={ defaultProfilePhoto } />    
+                                <b>John Doe</b>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
