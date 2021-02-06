@@ -64,7 +64,7 @@ export const LoginScreen = () => {
                     <h2 style={{ fontWeight: 'lighter' }}>Recent logins</h2>
                     <h6  style={{ fontWeight: 'lighter' }}>Click your picture or add an account.</h6>
                     <div className="d-flex flex-row justify-content-around align-items-center">
-                        <div className="card login-card" onClick={ goToMyLinkedIn } data-tip="Click me!">
+                        <div className="card login-card" onClick={ goToMyLinkedIn } data-tip="Contact me!">
                             <span className="badge bg-linkedIn"><i className="bi bi-linkedin"></i></span>
                             <div className="img-card-container">
                                 <img className="card-img-top img-zoom" alt="..." src="https://scontent.fsap4-1.fna.fbcdn.net/v/t1.0-9/87971700_10216995627031457_8324324086314434560_n.jpg?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=iKY6ulXNfGEAX_9x5Op&_nc_ht=scontent.fsap4-1.fna&oh=577e56eb406a9e3fe5448228a3ebc9d4&oe=6041014F" />
