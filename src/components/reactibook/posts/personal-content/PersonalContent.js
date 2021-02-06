@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import './PersonalContent.css';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import moment from 'moment';
+import { ContactMe } from '../../../ui/ContactMe';
 
 export const PersonalContent = () => {
 
@@ -104,14 +105,7 @@ export const PersonalContent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center align-items-center mt-3">
-                    <p>
-                        <i class="bi bi-linkedin mr-1"></i>
-                        <b><a href="https://www.linkedin.com/in/gabriel-angello-antonelly-g%C3%A1mez-b1b623195/">
-                            Gabriel Angello Antonelly Gamez Sandoval
-                        </a></b>
-                    </p>
-                </div>
+                <ContactMe/>
             </div>
             <br />
         </div>
