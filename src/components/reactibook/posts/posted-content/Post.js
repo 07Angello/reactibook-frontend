@@ -5,6 +5,7 @@ import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
 import { PostTypeIcon } from '../../../ui/PostTypeIcon';
 import './PostedContent.css';
+import filterType from '../../../../helpers/filterTypes';
 
 export const Post = ({ post }) => {
 
@@ -113,6 +114,19 @@ export const Post = ({ post }) => {
                                 className="container"
                                 onSubmit={ handleSaveEditedPost }
                             >
+                                <div className="col-12 d-flex flex-row justify-right-center align-items-left mb-1">
+                                    <i class="bi bi-shield-lock-fill mr-3" style={{ fontSize:'20px' }}> Privacy: </i>
+                                    <select
+                                        value={ statePost.filter }
+                                        className="form-control col-4"
+                                        name="filter"
+                                        onChange={ handleInputChange }
+                                    >
+                                        <option value={ filterType.PUBLIC }>Public</option>
+                                        <option value={ filterType.FRIENDS }>Friends</option>
+                                        <option value={ filterType.ONLY_ME }>Only Me</option>
+                                    </select>
+                                </div>
                                 <div className="form-group">
                                     <textarea
                                         name="content"
