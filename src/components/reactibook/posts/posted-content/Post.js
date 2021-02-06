@@ -115,7 +115,7 @@ export const Post = ({ post }) => {
                                 onSubmit={ handleSaveEditedPost }
                             >
                                 <div className="col-12 d-flex flex-row justify-right-center align-items-left mb-1">
-                                    <i class="bi bi-shield-lock-fill mr-3" style={{ fontSize:'20px' }}> Privacy: </i>
+                                    <i className="bi bi-shield-lock-fill mr-3" style={{ fontSize:'20px' }}> Privacy: </i>
                                     <select
                                         value={ statePost.filter }
                                         className="form-control col-4"
