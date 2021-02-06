@@ -9,6 +9,8 @@ export const startLogin = (email, password) => {
         const response = await fetchWithoutToken( 'auth', { email, password }, 'POST');
         const { Data, Message, Token, OK } = await response.json();
 
+        console.log(Data);
+
         if (!OK && Message && Message.length > 0 ) {
             toast.warn( Message );
         } else {
@@ -18,6 +20,8 @@ export const startLogin = (email, password) => {
             dispatch( login({ 
                 uid: Data._id,
                 name: Data.name,
+                email: Data.email,
+                createdAt: Data.createdAt,
                 profilePhoto: Data.profilePhoto,
                 coverPhoto: Data.coverPhoto
             }) );
@@ -53,6 +57,8 @@ export const startChecking = () => {
         const response = await fetchWithToken( 'auth/renew-token', {} );
         const { Data, Message, Token, OK } = await response.json();
 
+        console.log(Data);
+
         if (!OK && Message && Message.length > 0 ) {
             dispatch( checkingFinish() );
         } else {
@@ -62,6 +68,8 @@ export const startChecking = () => {
             dispatch( login({ 
                 uid: Data._id,
                 name: Data.name,
+                email: Data.email,
+                createdAt: Data.createdAt,
                 profilePhoto: Data.profilePhoto,
                 coverPhoto: Data.coverPhoto
             }) );
