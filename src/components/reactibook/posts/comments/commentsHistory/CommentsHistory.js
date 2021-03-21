@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Comment } from '../comment/comment';
 import defaultProfilePhoto from '../../../../../assets/avatar.svg';
-import { useSelector } from 'react-redux';
-import './CommentsHistory.css';
+import { useDispatch, useSelector } from 'react-redux';
+import './CommentHistory.css';
+import { startAddNewComment } from '../../../../../redux/actions/comment';
 
 export const CommentsHistory = ({ post }) => {
+
+    const dispatch = useDispatch();
 
     var currentDate = new Date();
     const options = {
@@ -22,7 +25,7 @@ export const CommentsHistory = ({ post }) => {
         creationDate: currentDate.toLocaleDateString('en-us', options)
     }
 
-    const { profilePhoto } = useSelector(state => state.auth);
+    const { profilePhoto, uid } = useSelector(state => state.auth);
 
     const [commentFormValue, setCommentFormValue] = useState(initialState);
     const { content } = commentFormValue;
@@ -34,10 +37,10 @@ export const CommentsHistory = ({ post }) => {
         });
     }
 
-    const handlePostComment = ( event ) => {
+    const handleSaveComment = ( event ) => {
         event.preventDefault();
 
-        console.log( commentFormValue );
+        dispatch( startAddNewComment( commentFormValue, uid, post._id ) );
 
         setCommentFormValue( initialState );
     }
@@ -63,7 +66,7 @@ export const CommentsHistory = ({ post }) => {
             <br />
             <div className="w-100 d-flex justify-content-end align-items-center">
                 <form className=" d-flex flex-row justify-content-center align-items-center w-100"
-                    onSubmit={ handlePostComment }>
+                    onSubmit={ handleSaveComment }>
                     <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
                     <div className="form-group w-100">
                         <textarea

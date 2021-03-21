@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommentsHistory } from './commentsHistory/CommentsHistory'
+import { CommentsHistory } from './commentsHistory/CommentsHistory';
 
 export const Comments = ({ post }) => {
     return (

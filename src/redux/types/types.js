@@ -19,5 +19,8 @@ export const types = {
     postAllWall: '[post] All Wall',
     postDelete: '[post] Delete Post',
     postUpdate: '[post] Update Post',
-    postsLogout: '[post] Logout Post'
+    postsLogout: '[post] Logout Post',
+    postAddNewComment: '[post] Add New Comment',
+    postEditComment: '[post] Edit Comment',
+    postDeleteComment: '[post] Delete Comment',
 }

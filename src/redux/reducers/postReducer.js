@@ -1,4 +1,5 @@
 import { types } from "../types/types";
+import produce from 'immer';
 
 const initialState = {
     posts: []
@@ -53,6 +54,34 @@ export const postReducer = (state = initialState, action) => {
             return {
                 ...initialState
             }
+
+        case types.postAddNewComment:
+            return produce(state, (draft) => {
+                draft.posts.map((post) => {
+                    post.comments.push({...action.payload});
+                })
+            });
+
+        case types.postEditComment:
+            return {
+                ...state,
+                posts: state.posts.comments.map(
+                    comment => ( comment._id === action.payload._id ) ? action.payload : comment
+                )
+            }
+
+        case types.postDeleteComment:
+            return produce(state, (draft) => {
+                draft.posts.map((post) => {
+                    post.comments.map((comment) => {
+                        if (comment._id === action.payload) {
+                            console.log(comment.content)
+                        }
+                        
+                    }) 
+                })
+            });
+
     
         default:
             return state;
