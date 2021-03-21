@@ -156,6 +156,16 @@ export const Post = ({ post }) => {
                     }
                     
                 </div>
+                <hr />
+                <div className="d-flex flex-row justify-content-end align-items-center">
+                    {
+                        post.numComments <= 1 ? (
+                            <h6 className="commentsNumber">{ post.numComments } Comment</h6>
+                        ) : (
+                            <h6 className="commentsNumber">{ post.numComments } Comments</h6>
+                        )
+                    }
+                </div>
             </div>
         </div>
     )

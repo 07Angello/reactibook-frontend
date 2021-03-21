@@ -2,3 +2,10 @@
     font-size: 12px;
     color: gray;
 }
+.commentsNumber {
+    cursor: pointer;
+}
+
+.commentsNumber:hover {
+    text-decoration-line: underline;
+}
