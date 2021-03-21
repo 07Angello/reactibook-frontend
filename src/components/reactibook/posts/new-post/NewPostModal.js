@@ -57,7 +57,7 @@ export const NewPostModal = () => {
         setPostFormValue({
             ...postFormValue,
             [target.name]: target.value
-        })
+        });
     }
 
     const handleSavPostForm = ( event ) => {

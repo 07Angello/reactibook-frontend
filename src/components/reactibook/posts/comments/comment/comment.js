@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import defaultProfilePhoto from '../../../../assets/avatar.svg';
+import defaultProfilePhoto from '../../../../../assets/avatar.svg';
 
 export const Comment = ({ comment }) => {
 
