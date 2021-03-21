@@ -3,10 +3,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Comment } from '../comment/comment';
 import defaultProfilePhoto from '../../../../../assets/avatar.svg';
 import { useSelector } from 'react-redux';
+import './CommentsHistory.css';
 
 export const CommentsHistory = ({ post }) => {
-
-    const { profilePhoto } = useSelector(state => state.auth);
 
     var currentDate = new Date();
     const options = {
@@ -23,22 +22,24 @@ export const CommentsHistory = ({ post }) => {
         creationDate: currentDate.toLocaleDateString('en-us', options)
     }
 
-    const [stateFormComment, setstateFormComment] = useState(initialState);
-    const { content } = stateFormComment;
+    const { profilePhoto } = useSelector(state => state.auth);
 
-    const handleInputComment = ({ target }) => {
-        setstateFormComment({
-            ...stateFormComment,
+    const [commentFormValue, setCommentFormValue] = useState(initialState);
+    const { content } = commentFormValue;
+
+    const handleInputChange = ({ target }) => {
+        setCommentFormValue({
+            ...commentFormValue,
             [target.name]: target.value
         });
     }
 
-    const handleComment = ( event ) => {
+    const handlePostComment = ( event ) => {
         event.preventDefault();
 
-        console.log( ...stateFormComment );
+        console.log( commentFormValue );
 
-        setstateFormComment( initialState );
+        setCommentFormValue( initialState );
     }
 
     return (
@@ -62,22 +63,24 @@ export const CommentsHistory = ({ post }) => {
             <br />
             <div className="w-100 d-flex justify-content-end align-items-center">
                 <form className=" d-flex flex-row justify-content-center align-items-center w-100"
-                onSubmit={ handleComment }>
-                    <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } alt="Reactibook" height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
-                    <textarea
-                        type="text"
-                        placeholder="Write a comment..."
-                        name="content"
-                        value={ content }
-                        onChange={ handleInputComment }
-                        id="content"
-                        className="w-100 form-control"
-                        style={{ resize: 'none' }}
-                    ></textarea>
+                    onSubmit={ handlePostComment }>
+                    <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
+                    <div className="form-group w-100">
+                        <textarea
+                            type="text"
+                            className="w-100 form-control"
+                            placeholder="Write a comment..."
+                            name="content"
+                            value={ content }
+                            onChange={ handleInputChange }
+                            id="content"
+                            style={{ resize: 'none' }}
+                        ></textarea>
+                    </div>
+                    
                     <button
                         className="btn btn-light d-flex justify-content-center align-items-center rounded"
-                        type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        style={{ marginLeft:'7px' }}
+                        type="submit" style={{ marginLeft:'7px' }}
                     >
                         <i className="bi bi-chat-left-text-fill" style={{ fontSize: '18px' }}></i>
                     </button>

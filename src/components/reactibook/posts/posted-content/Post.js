@@ -189,7 +189,7 @@ export const Post = ({ post }) => {
                         }
                     </div>
 
-                    <div class="collapse w-100" id={`comment-${post._id}`}>
+                    <div className="collapse w-100" id={`comment-${post._id}`}>
                         <Comments post={ post }></Comments>
                     </div>
 

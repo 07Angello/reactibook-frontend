@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import defaultProfilePhoto from '../../../../../assets/avatar.svg';
+import './comment.css';
 
 export const Comment = ({ comment }) => {
 
@@ -16,7 +17,7 @@ export const Comment = ({ comment }) => {
                 <div></div>
             </div>
                                                          
-            <div class="shadow p-2  bg-white rounded">
+            <div className="shadow p-2  bg-white rounded">
                 <h6>{ comment.user.name }</h6>
                 <p>{ comment.content }</p>
                 <p className="text-right">{ comment.creationDate }</p>
