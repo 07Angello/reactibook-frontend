@@ -5,10 +5,11 @@ import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
 import { PostTypeIcon } from '../../../ui/PostTypeIcon';
 import './PostedContent.css';
+import { useHistory } from 'react-router-dom';
 import filterType from '../../../../helpers/filterTypes';
 
 export const Post = ({ post }) => {
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const [statePost, setStatePost] = useState({
@@ -77,6 +78,10 @@ export const Post = ({ post }) => {
             [target.name]: target.value,
             isEdited: true
         });
+    }
+
+    const handleComments = () => {
+        history.push("/comments");
     }
 
     return (
@@ -170,9 +175,9 @@ export const Post = ({ post }) => {
                 <div className="d-flex flex-row justify-content-end align-items-center">
                     {
                         post.numComments <= 1 ? (
-                            <h6 className="commentsNumber">{ post.numComments } Comment</h6>
+                            <h6 onClick={ handleComments } className="commentsNumber">{ post.numComments } Comment</h6>
                         ) : (
-                            <h6 className="commentsNumber">{ post.numComments } Comments</h6>
+                            <h6 onClick={ handleComments } className="commentsNumber">{ post.numComments } Comments</h6>
                         )
                     }
                 </div>

@@ -6,6 +6,7 @@ import {
     Redirect
   } from "react-router-dom";
 import { LoginScreen } from '../components/auth/LoginScreen';
+import { Comments } from '../components/reactibook/posts/comments/comments';
 import { Profile } from '../components/reactibook/profile/profile';
 import { WallScreen } from '../components/reactibook/WallScreen';
 import { Loader } from '../components/ui/Loader';
@@ -33,6 +34,7 @@ export const AppRouter = () => {
                 <PublicRoute exact path="/login" component={ LoginScreen } isAuthenticated={ !!uid } />
                 <PrivateRoute exact path="/" component={ WallScreen } isAuthenticated={ !!uid } />
                 <PrivateRoute exact path="/me" component={ Profile } isAuthenticated={ !!uid } />
+                <PrivateRoute exact path="/comments" component={ Comments } isAuthenticated={ !!uid } />
 
                 <Redirect to="/" />
             </Switch>
