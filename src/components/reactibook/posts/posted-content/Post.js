@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
 import { PostTypeIcon } from '../../../ui/PostTypeIcon';
 import './PostedContent.css';
-import { useHistory } from 'react-router-dom';
 import filterType from '../../../../helpers/filterTypes';
+import { Comment } from '../comments/comment';
 
 export const Post = ({ post }) => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const [statePost, setStatePost] = useState({
@@ -19,8 +19,10 @@ export const Post = ({ post }) => {
         isEdited: false,
     });
 
+    const [stateComment, setStateComment] = useState('');
+
     const [isEditing, setIsEditing] = useState(false);
-    const { uid } = useSelector(state => state.auth);
+    const { uid, profilePhoto } = useSelector(state => state.auth);
 
     const handleEditPost = ( postId ) => {
         setStatePost({
@@ -60,7 +62,8 @@ export const Post = ({ post }) => {
             content: post.content,
             filter: post.filter,
             isEdited: true,
-            user: post.user
+            user: post.user,
+            comments: post.comments
         });
 
         setIsEditing(false);
@@ -78,10 +81,6 @@ export const Post = ({ post }) => {
             [target.name]: target.value,
             isEdited: true
         });
-    }
-
-    const handleComments = () => {
-        history.push("/comments");
     }
 
     return (
@@ -172,14 +171,60 @@ export const Post = ({ post }) => {
                     
                 </div>
                 <hr />
-                <div className="d-flex flex-row justify-content-end align-items-center">
-                    {
-                        post.numComments <= 1 ? (
-                            <h6 onClick={ handleComments } className="commentsNumber">{ post.numComments } Comment</h6>
-                        ) : (
-                            <h6 onClick={ handleComments } className="commentsNumber">{ post.numComments } Comments</h6>
-                        )
-                    }
+                <div className="d-flex flex-column justify-content-end align-items-center">
+                    <div className="w-100 text-right">
+                        {
+                            post.numComments <= 1 ? (
+                                <h6 className="commentsNumber"
+                                    data-toggle="collapse" data-target={`#comment-${post._id}`} aria-expanded="false" aria-controls={`#comment-${post._id}`}
+                                >
+                                    { post.numComments } Comment
+                                    </h6>
+                            ) : (
+                                <h6 className="commentsNumber"
+                                    data-toggle="collapse" data-target={`#comment-${post._id}`} aria-expanded="false" aria-controls={`#comment-${post._id}`}
+                                >
+                                    { post.numComments } Comments
+                                </h6>
+                            )
+                        }
+                    </div>
+
+                    <div class="collapse w-100" id={`comment-${post._id}`}>
+                        <hr />
+                        {
+                            post.numComments > 0 ? ( 
+                                <div>
+                                    <TransitionGroup>
+                                        {
+                                            post.comments.map((comment) => (
+                                                <CSSTransition key={ comment._id } timeout={ 300 } classNames="post">
+                                                    <Comment comment={ comment } ></Comment>
+                                                </CSSTransition>
+                                            ))
+                                        }
+                                    </TransitionGroup>
+                                </div>
+                            ) : (<p className=" text-center">No comments</p>)
+                        }
+                        <br />
+                        <div className="w-100 d-flex justify-content-end align-items-center">
+                            <form className=" d-flex flex-row justify-content-center align-items-center w-100">
+                                <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } alt="Reactibook" height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
+                                <input
+                                    type="text"
+                                    placeholder="Write a comment..."
+                                    name="content"
+                                    value={ stateComment }
+                                    onChange={ handleInputChange }
+                                    id="content"
+                                    className="w-100"
+                                ></input>
+                            </form>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>

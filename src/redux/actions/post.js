@@ -24,6 +24,8 @@ export const startGettingPostsFiltered = ( filterType, uid ) => {
             const response = await fetchWithToken(`posts/${ filterType }/${ uid }`);
             const { Data, Message, OK } = await response.json();
 
+            console.log(Data);
+
             if (!OK && Message.length > 0 && Message) {
                 toast.warning( Message );
             } else {
