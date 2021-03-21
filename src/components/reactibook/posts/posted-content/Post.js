@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
@@ -19,6 +19,7 @@ export const Post = ({ post }) => {
     });
 
     const [isEditing, setIsEditing] = useState(false);
+    const { uid } = useSelector(state => state.auth);
 
     const handleEditPost = ( postId ) => {
         setStatePost({
@@ -95,14 +96,23 @@ export const Post = ({ post }) => {
                     </div>
                     {
                         isEditing ? ( <> </> ) : (
+
                             <div className="btn-group dropleft register-form-x">
-                                <button className="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="bi bi-gear-fill"></i>
-                                </button>
-                                <div className="dropdown-menu">
-                                    <b onClick={ () => handleEditPost(post._id) } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</b>
-                                    <b onClick={ () => handleDeletePost(post._id) }  className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</b>
-                                </div>
+                            {
+                                uid !== post.user._id  ? ( <> </> ) : (
+
+                                    <div>
+                                        <button className="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i className="bi bi-gear-fill"></i>
+                                        </button>
+                                        <div className="dropdown-menu">
+                                            <b onClick={ () => handleEditPost(post._id) } className="dropdown-item"><i className="bi bi-pencil mr-1"></i> Edit Post</b>
+                                            <b onClick={ () => handleDeletePost(post._id) }  className="dropdown-item"><i className="bi bi-trash mr-1"></i> Delete Post</b>
+                                        </div>
+                                    </div>
+
+                                )
+                            }
                             </div>
                         )
                     }

@@ -24,12 +24,32 @@ export const startGettingPostsFiltered = ( filterType, uid ) => {
             const response = await fetchWithToken(`posts/${ filterType }/${ uid }`);
             const { Data, Message, OK } = await response.json();
 
-
             if (!OK && Message.length > 0 && Message) {
                 toast.warning( Message );
             } else {
                 const posts = preparePosts( Data );
                 dispatch( postsFiltered( posts ) );
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error('An error has ocurred while the events were LOADING!');
+        }
+
+    }
+}
+
+export const startGettingWallPosts = () => {
+    return async( dispatch ) => {
+
+        try {
+            const response = await fetchWithToken(`posts/all/wall/ups`);
+            const { Data, Message, OK } = await response.json();
+
+            if (!OK && Message.length > 0 && Message) {
+                toast.warning( Message );
+            } else {
+                const posts = preparePosts( Data );
+                dispatch( postsWall( posts ) );
             }
         } catch (error) {
             console.log(error);
@@ -86,6 +106,11 @@ const postAddNew = ( post ) => ({
 
 const postsFiltered = ( posts ) => ({
     type: types.postGottenFiltered,
+    payload: posts
+});
+
+const postsWall = ( posts ) => ({
+    type: types.postAllWall,
     payload: posts
 });
 

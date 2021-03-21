@@ -24,6 +24,14 @@ export const postReducer = (state = initialState, action) => {
                     ...action.payload
                 ]
             }
+        
+        case types.postAllWall:
+            return {
+                ...state,
+                posts: [ 
+                    ...action.payload
+                ]
+            }
 
         case types.postDelete:
             return {

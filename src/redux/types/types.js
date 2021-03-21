@@ -16,6 +16,7 @@ export const types = {
     postStartAddNew: '[post] Start Add New',
     postAddNew: '[post] Add New',
     postGottenFiltered: '[post] Gotten Filtered',
+    postAllWall: '[post] All Wall',
     postDelete: '[post] Delete Post',
     postUpdate: '[post] Update Post',
     postsLogout: '[post] Logout Post'
