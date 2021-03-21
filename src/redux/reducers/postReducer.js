@@ -58,7 +58,10 @@ export const postReducer = (state = initialState, action) => {
         case types.postAddNewComment:
             return produce(state, (draft) => {
                 draft.posts.map((post) => {
-                    post.comments.push({...action.payload});
+                    if (post._id === action.payload.post) {
+                        post.comments.push({...action.payload});
+                    }
+                    
                 })
             });
 

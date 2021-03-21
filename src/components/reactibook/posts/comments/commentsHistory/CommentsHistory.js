@@ -49,7 +49,7 @@ export const CommentsHistory = ({ post }) => {
         <div>
             <hr />
             {
-                post.numComments > 0 ? ( 
+                post.comments.length > 0 ? ( 
                     <div>
                         <TransitionGroup>
                             {
@@ -69,7 +69,7 @@ export const CommentsHistory = ({ post }) => {
                     onSubmit={ handleSaveComment }>
                     <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
                     <div className="form-group w-100">
-                        <textarea
+                        <input
                             type="text"
                             className="w-100 form-control"
                             placeholder="Write a comment..."
@@ -78,7 +78,7 @@ export const CommentsHistory = ({ post }) => {
                             onChange={ handleInputChange }
                             id="content"
                             style={{ resize: 'none' }}
-                        ></textarea>
+                        ></input>
                     </div>
                     
                     <button
