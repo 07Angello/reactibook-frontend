@@ -79,11 +79,13 @@ export const PostedContent = () => {
                     </div>
                 </div>
                 <TransitionGroup>
-                    {posts.map((post) => (
-                        <CSSTransition key={ post._id } timeout={ 300 } classNames="post">
-                            <Post post={ post } />
-                        </CSSTransition>
-                    ))}
+                    {
+                        posts.map((post) => (
+                            <CSSTransition key={ post._id } timeout={ 300 } classNames="post">
+                                <Post post={ post } />
+                            </CSSTransition>
+                        ))
+                    }
                 </TransitionGroup>
                 <br />
             </div>

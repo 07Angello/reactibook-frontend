@@ -6,6 +6,7 @@ import {
     Redirect
   } from "react-router-dom";
 import { LoginScreen } from '../components/auth/LoginScreen';
+import { Profile } from '../components/reactibook/profile/profile';
 import { WallScreen } from '../components/reactibook/WallScreen';
 import { Loader } from '../components/ui/Loader';
 import { startChecking } from '../redux/actions/auth';
@@ -31,6 +32,7 @@ export const AppRouter = () => {
             <Switch>
                 <PublicRoute exact path="/login" component={ LoginScreen } isAuthenticated={ !!uid } />
                 <PrivateRoute exact path="/" component={ WallScreen } isAuthenticated={ !!uid } />
+                <PrivateRoute exact path="/me" component={ Profile } isAuthenticated={ !!uid } />
 
                 <Redirect to="/" />
             </Switch>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import defaultProfilePhoto from '../../../../assets/avatar.svg';
 import { startEditingPost, startingDeletePost } from '../../../../redux/actions/post';
@@ -10,8 +10,6 @@ import filterType from '../../../../helpers/filterTypes';
 export const Post = ({ post }) => {
 
     const dispatch = useDispatch();
-
-    const { name, profilePhoto } = useSelector(state => state.auth);
 
     const [statePost, setStatePost] = useState({
         _id: post._id,
@@ -26,7 +24,8 @@ export const Post = ({ post }) => {
         setStatePost({
             ...statePost,
             content: post.content,
-            filter: post.filter
+            filter: post.filter,
+            user: post.user
         });
 
         setIsEditing(true);
@@ -58,7 +57,8 @@ export const Post = ({ post }) => {
             ...statePost,
             content: post.content,
             filter: post.filter,
-            isEdited: true
+            isEdited: true,
+            user: post.user
         });
 
         setIsEditing(false);
@@ -84,10 +84,10 @@ export const Post = ({ post }) => {
                 <div className="col-12 d-flex flex-row justify-content-center align-items-center">
                     <div className="col-1 d-flex justify-content-center align-items-center">
                         <img className="photo" alt="" 
-                            src={ profilePhoto ? profilePhoto : defaultProfilePhoto } />
+                            src={ post.user.profilePhoto ? post.user.profilePhoto : defaultProfilePhoto } />
                     </div>
                     <div className="col-11 d-flex flex-column justify-content-center align-items-left">
-                        <h6>{ name }</h6>
+                        <h6>{ post.user.name }</h6>
                         <div className="d-flex flex-row justify-content-left align-items-center">
                             <p className="creation-section mr-3 creation-size">{ post.creationDate }</p>
                             <PostTypeIcon postType={ post.filter } />

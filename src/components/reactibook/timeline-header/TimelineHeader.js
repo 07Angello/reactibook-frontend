@@ -4,7 +4,7 @@ import defaultProfilePhoto from '../../../assets/avatar.svg';
 import { useSelector } from 'react-redux';
 
 export const TimelineHeader = () => {
-    const defaultCoverPhoto = 'https://scontent.fsap4-1.fna.fbcdn.net/v/t31.0-8/11816215_10204838170582644_7896103308581176417_o.jpg?_nc_cat=105&ccb=2&_nc_sid=19026a&_nc_ohc=0jXCHcbHBJQAX8sIrtG&_nc_ht=scontent.fsap4-1.fna&oh=23d8fec3f926005b88f31412142c84d9&oe=603F5179';
+    const defaultCoverPhoto = 'https://cdn.pixabay.com/photo/2019/02/21/20/03/leaves-4012127_960_720.jpg';
 
     const { name, profilePhoto, coverPhoto } = useSelector(state => state.auth);
 
