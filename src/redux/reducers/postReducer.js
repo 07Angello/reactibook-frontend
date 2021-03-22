@@ -61,7 +61,6 @@ export const postReducer = (state = initialState, action) => {
                     if (post._id === action.payload.post) {
                         post.comments.push({...action.payload});
                     }
-                    
                 })
             });
 
@@ -76,12 +75,13 @@ export const postReducer = (state = initialState, action) => {
         case types.postDeleteComment:
             return produce(state, (draft) => {
                 draft.posts.map((post) => {
-                    post.comments.map((comment) => {
-                        if (comment._id === action.payload) {
-                            console.log(comment.content)
+                    if (post._id === action.payload.post) {
+                        for( var i = 0; i < post.comments.length; i++) { 
+                            if ( post.comments[i]._id === action.payload._id) { 
+                                post.comments.splice(i, 1); 
+                            }
                         }
-                        
-                    }) 
+                    }
                 })
             });
 

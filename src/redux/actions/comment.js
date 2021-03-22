@@ -25,7 +25,7 @@ export const startingDeleteComment = ( commentId, postId ) => {
         if (!OK && Message.length > 0 && Message) {
             toast.warning( Message );
         } else {
-            dispatch( deleteComment( Data._id ) );
+            dispatch( deleteComment( Data ) );
 
             toast.success('The comment has been removed.');
         }
