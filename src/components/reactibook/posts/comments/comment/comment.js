@@ -85,10 +85,10 @@ export const Comment = ({ comment }) => {
                             <div className="d-flex flex-row align-items-center justify-content-between">
                                 <div className="d-flex flex-row align-items-center">
                                     <button type="submit" className="btn btn-outline-success btn-sm m-1">
-                                        <i className="bi bi-check2-circle"></i>
+                                        <i className="bi bi-check2-circle" style={{ fontSize:'15px' }}></i>
                                     </button>
                                     <button onClick={ handleCancelEditComment } type="button" className="btn btn-outline-danger btn-sm m-1">
-                                        <i className="bi bi-x"></i>
+                                        <i className="bi bi-x"  style={{ fontSize:'15px' }}></i>
                                     </button>
                                 </div>
                                 <p className="text-right" style={{ fontSize: '15px' }}>Editing...</p>
