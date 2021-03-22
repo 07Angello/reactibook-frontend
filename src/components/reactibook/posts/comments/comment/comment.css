@@ -1,0 +1,8 @@
+.optionBtn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    border-radius: 50px;
+    padding: 1px 5px 1px 5px;
+    background-color: #e0e0e0;
+}

@@ -67,7 +67,7 @@ export const CommentsHistory = ({ post }) => {
             <div className="w-100 d-flex justify-content-end align-items-center">
                 <form className=" d-flex flex-row justify-content-center align-items-center w-100"
                     onSubmit={ handleSaveComment }>
-                    <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
+                    <img src={ profilePhoto ? profilePhoto : defaultProfilePhoto } alt="profile" height="30" className="d-inline-block align-middle mr-2" style={{ borderRadius: '50px' }}/>
                     <div className="form-group w-100">
                         <input
                             type="text"

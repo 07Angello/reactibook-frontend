@@ -173,17 +173,17 @@ export const Post = ({ post }) => {
                 <div className="d-flex flex-column justify-content-end align-items-center">
                     <div className="w-100 text-right">
                         {
-                            post.comments.length > 0 ? (
+                            post.comments.length <= 1 ? (
                                 <h6 className="commentsNumber"
-                                    data-toggle="collapse" data-target={`#comment-${post._id}`} aria-expanded="false" aria-controls={`#comment-${post._id}`}
+                                    data-toggle="collapse" data-target={`#comment-${post._id}`}
                                 >
-                                    { post.comments.length } Comments
-                                    </h6>
+                                    { post.comments.length } Comment
+                                </h6>
                             ) : (
                                 <h6 className="commentsNumber"
-                                    data-toggle="collapse" data-target={`#comment-${post._id}`} aria-expanded="false" aria-controls={`#comment-${post._id}`}
+                                    data-toggle="collapse" data-target={`#comment-${post._id}`}
                                 >
-                                    { post.numComments } Comments
+                                    { post.comments.length } Comments
                                 </h6>
                             )
                         }

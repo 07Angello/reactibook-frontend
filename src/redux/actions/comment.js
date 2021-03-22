@@ -1,7 +1,6 @@
 import { fetchWithToken } from "../../helpers/fetch";
 import { types } from "../types/types";
 import { toast } from 'react-toastify';
-import { preparePosts } from '../../helpers/preparePosts';
 
 export const startAddNewComment = ( comment, uid, pid ) => {
     return async( dispatch ) => {
@@ -32,6 +31,21 @@ export const startingDeleteComment = ( commentId, postId ) => {
     }
 }
 
+export const startEditingComment = ( comment ) => {
+    return async( dispatch ) => {
+        const response = await fetchWithToken(`comments/${ comment._id }`, { ...comment }, 'PUT');
+        const { Data, Message, OK } = await response.json();
+
+        if ( !OK && Message.length > 0 && Message ) {
+            toast.warning( Message );
+        } else {
+            dispatch( commentUpdate( Data ) );
+
+            toast.success( 'Comment updated.' );
+        }
+    }
+}
+
 const addNewComment = ( post ) => ({
     type: types.postAddNewComment,
     payload: post
@@ -40,4 +54,9 @@ const addNewComment = ( post ) => ({
 const deleteComment = ( commentId ) => ({
     type: types.postDeleteComment,
     payload: commentId
+});
+
+const commentUpdate = ( comment ) => ({
+    type: types.postEditComment,
+    payload: comment
 });

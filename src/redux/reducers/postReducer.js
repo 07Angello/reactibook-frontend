@@ -59,18 +59,23 @@ export const postReducer = (state = initialState, action) => {
             return produce(state, (draft) => {
                 draft.posts.map((post) => {
                     if (post._id === action.payload.post) {
-                        post.comments.push({...action.payload});
+                        return post.comments.push({...action.payload});
                     }
+
+                    return post.comments;
                 })
             });
 
         case types.postEditComment:
-            return {
-                ...state,
-                posts: state.posts.comments.map(
-                    comment => ( comment._id === action.payload._id ) ? action.payload : comment
-                )
-            }
+            return produce(state, (draft) => {
+                draft.posts.map((post) => {
+                    if (post._id === action.payload.post) {
+                        post.comments.map((comment) => ( comment._id === action.payload._id ) ? action.payload : comment);
+                    }
+
+                    return post.comments;
+                })
+            });
 
         case types.postDeleteComment:
             return produce(state, (draft) => {
@@ -78,10 +83,12 @@ export const postReducer = (state = initialState, action) => {
                     if (post._id === action.payload.post) {
                         for( var i = 0; i < post.comments.length; i++) { 
                             if ( post.comments[i]._id === action.payload._id) { 
-                                post.comments.splice(i, 1); 
+                                return post.comments.splice(i, 1); 
                             }
                         }
                     }
+
+                    return post.comments;
                 })
             });
 
