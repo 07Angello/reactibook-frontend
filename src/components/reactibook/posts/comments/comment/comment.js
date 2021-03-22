@@ -102,7 +102,7 @@ export const Comment = ({ comment }) => {
                             <p>{ comment.content }</p>
                             <p className="text-right" style={{ fontSize: '10px' }}>{ comment.creationDate }</p>
                             {
-                                isOwner ? (<p className="optionBtn"><i class="bi bi-three-dots"></i></p>) : (<></>)
+                                isOwner ? (<p className="optionBtn"><i className="bi bi-three-dots"></i></p>) : (<></>)
                             }
                             
                         </div>

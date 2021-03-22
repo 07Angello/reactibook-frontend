@@ -70,7 +70,11 @@ export const postReducer = (state = initialState, action) => {
             return produce(state, (draft) => {
                 draft.posts.map((post) => {
                     if (post._id === action.payload.post) {
-                        post.comments.map((comment) => ( comment._id === action.payload._id ) ? action.payload : comment);
+                        for( let i = 0; i < post.comments.length; i++) { 
+                            if ( post.comments[i]._id === action.payload._id) { 
+                                post.comments[i] = action.payload;
+                            }
+                        }
                     }
 
                     return post.comments;
@@ -81,7 +85,7 @@ export const postReducer = (state = initialState, action) => {
             return produce(state, (draft) => {
                 draft.posts.map((post) => {
                     if (post._id === action.payload.post) {
-                        for( var i = 0; i < post.comments.length; i++) { 
+                        for( let i = 0; i < post.comments.length; i++) { 
                             if ( post.comments[i]._id === action.payload._id) { 
                                 return post.comments.splice(i, 1); 
                             }
